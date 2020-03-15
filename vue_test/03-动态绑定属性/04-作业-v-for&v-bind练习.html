@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- 当点击哪个名字时,该名字变色 -->
+<body>
+  <style>
+    .click {
+      color: red
+    }
+
+    li {
+      cursor: pointer;
+    }
+  </style>
+  <div id="app">
+    <ul>
+      <li v-for="(m, index) in lists" @click="getClass(index)" :class="{click:i==index}">{{m}}</li>
+    </ul>
+  </div>
+  <script src="../../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        lists: ['香蕉','苹果','梨','草莓'],
+        i: 0
+      },
+
+      methods: {
+        getClass: function (index) {
+          this.i = index;
+          console.log(index);
+        }
+      }
+    })
+  </script>
+</body>
+</html>

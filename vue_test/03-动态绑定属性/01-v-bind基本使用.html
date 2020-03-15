@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../../js/vue.js"></script>
+  <div id="app">
+    <img v-bind:src="imgURL" alt="">
+    <a v-bind:href="aHref">哔哩哔哩</a>
+    <!-- 语法糖写法 -->
+    <img :src="imgURL" alt="">
+    <a :href="aHref">哔哩哔哩</a>
+  </div>
+  
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        imgURL: 'https://gss0.bdstatic.com/6LZ1dD3d1sgCo2Kml5_Y_D3/sys/portrait/item/tb.1.be50a267.lc8u586hJ29ijOIqcZYZOg?t=1528726325',
+        aHref: 'https://www.bilibili.com'
+      }
+    })
+  </script>
+</body>
+</html>

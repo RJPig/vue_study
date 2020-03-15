@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 1.直接拼接,语法过于繁琐  -->
+    <h2>{{firstName}} {{lastName}}</h2>
+    <h2>{{firstName + ' ' + lastName}}</h2>
+    <!-- 通过定义methods方法 -->
+    <h2>{{getfullName()}}</h2>
+    <!-- 通过computed计算属性,性能优于methods方法,
+      methods函数调用到几次就得调用次,而计算属性computed永远只调用一次 -->
+    <h2>{{fullName}}</h2>
+  </div>
+  <script src="../../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        firstName: 'Lebron',
+        lastName: 'James'
+      },
+
+      computed: {
+        fullName: function () {
+           return this.firstName + ' ' + this.lastName
+        }
+      },
+
+      methods: {
+        getfullName: function () {
+          return this.firstName + ' ' + this.lastName
+        }
+      }
+    })
+  </script>
+</body>
+</html>

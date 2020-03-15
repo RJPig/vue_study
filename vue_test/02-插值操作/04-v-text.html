@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../../js/vue.js"></script>
+  <div id="app">
+    <h2>{{message}},没有v-text指令</h2>
+    <h2 v-text="message">有v-text指令</h2>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '测试文本'
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue计数器</title>
+</head>
+<body>
+    <div id="app">
+        <h3>当前计数: {{counter}}</h3>
+        <button @click='add'>+</button>
+        <button @click='sub'>-</button>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                counter: 0
+            },
+            methods: {
+                add: function(){
+                    console.log('add函数被执行');
+                    this.counter++
+                },
+                sub: function(){
+                    console.log('sub函数被执行');
+                    this.counter--
+                }
+            }
+        })
+    </script>
+</body>
+</html>
