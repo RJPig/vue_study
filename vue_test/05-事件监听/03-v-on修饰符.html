@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 1. .stop修饰符的使用 -->
+    <!-- button是div里的子属性,添加.stop之后,将两者单独分开监听,而不是原本的传递监听 -->
+    <div @click="divClick">
+      aaa 
+      <button @click.stop="btnClick">按钮</button>
+    </div>
+
+    <!-- 2. .prevent修饰符的使用 -->
+    <form action="baidu">
+      <input type="submit" value="提交" @click.prevent="submitClick">
+    </form>
+
+    <!-- 3.监听某个键盘的键帽 -->
+    <input type="text" @keyup.enter="keyUp">
+
+    <!-- 4. -->
+    <button @click.once="btn2Click">按钮</button>
+  </div>
+  <script src="../../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+
+      },
+      methods: {
+        btnClick() {
+          console.log("btnClick");
+          
+        },
+        divClick() {
+          console.log("divClick");
+          
+        },
+        submitClick() {
+          console.log("submitClick");
+          
+        },
+        keyUp() {
+          console.log("keyUp");
+          
+        },
+        btn2Click() {
+          console.log("btn2Click");
+          
+        }
+      }
+    })
+  </script>
+</body>
+</html>
