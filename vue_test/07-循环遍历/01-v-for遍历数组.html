@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{message}}
+    <ul>
+        <li v-for="(item, index) in lessions">{{index+1}}.{{item}}</li>
+    </ul>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: 'v-for遍历数组',
+            lessions: ['html5','html','css3','css','JavaScript','JQuery','Vue']
+        }
+    })
+</script>
+</body>
+</html>
