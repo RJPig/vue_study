@@ -17,7 +17,7 @@
     const app = new Vue({
       el: '#app',
       data: {
-        lession: ["a", "b", "c", "d"]
+        lession: ["a", "b", "c", "d","f","e"]
       },
       methods: {
         btnClick() {
@@ -34,8 +34,23 @@
           // this.lession.unshift();          
           // this.lession.unshift('aaa','bbbb','ccccc');
 
-          // splice作用: 删除元素/插入元素/替换元素
-          this.lession.splice(2,0,'aaa')
+          // 5. splice(): 删除元素/插入元素/替换元素
+          // 删除元素: 第二个参数传入要删除的几个元素(如果没有传,则删除后面所有元素)
+          // this.lession.splice(1,2)
+          // 替换元素: 第二个参数,表示我们要替换几个元素,后面是用于替换前面的元素
+          // const start = 1
+          // this.lession.splice(start,this.lession.length-start,'m','n','l')
+          // 插入元素: 第二个参数为0,第三个参数为想插入的元素值
+          // this.lession.splice(this.lession.length,0,'i')
+
+          // 6. sort(): 对元素进行排序
+          // this.lession.sort()
+
+          // 7. reverse(): 对元素进行反转
+          // this.lession.reverse()
+
+          // 注意:通过索引对元素进行修改时,页面不会做出对应响应
+          // this.lession[0] = 'aaa';
         }
       }
     })

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    .click {
+      color:red;
+    }
+
+    li {
+      cursor: pointer;
+    }
+
+  </style>
+  <div id="app">
+    {{message}}
+    <ul>
+        <li v-for="(item, index) in lessions" @click="btnClick(index)" 
+            :class="{click: i === index}">{{item}}
+        </li>
+    </ul>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: 'vue列表展示',
+            lessions: ['html5','html','css3','css','JavaScript','JQuery','Vue'],
+            i: 0
+        },
+        methods: {
+          btnClick(index) {
+            this.i = index;
+            console.log(this.lessions[index]);
+            
+          }
+        }
+    })
+</script>
+</body>
+</html>
