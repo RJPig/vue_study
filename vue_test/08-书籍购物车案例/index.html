@@ -7,8 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <script src="../../js/vue.js"></script>
-  <script src="main.js"></script>
+
   <div id="app">
     <table>
       <thead>
@@ -21,7 +20,25 @@
           <th>操作</th>
         </tr>
       </thead>
+
+      <tbody>
+        <tr v-for="item in books">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.date}}</td>
+          <td>{{item.price | showPrice}}</td>
+          <td>
+            <button>-</button>
+            {{item.count}}
+            <button>+</button>
+          </td>
+          <td><button>移除</button></td>
+        </tr>
+      </tbody>
     </table>
+    <h2>总价格:</h2>
   </div>
+  <script src="../../js/vue.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
