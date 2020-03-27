@@ -52,20 +52,40 @@ const app = new Vue({
     computed: {
       totalPrice() {
         let totalPrice = 0;
-        // for(let i = 0; i < this.books.length; i++){
+        // 1. 普通的for循环
+        // for(let i = 0; i < this.books.length; i++) {
         //   totalPrice += this.books[i].price * this.books[i].count
         // }
 
-        for(let i in this.books){
-          totalPrice += this.books[i].price * this.books[i].count
 
-        }
-        return totalPrice
+        // 2. for(let i in this.books)
+        // for(let i in this.books) {
+        //   totalPrice += this.books[i].price * this.books[i].count
+
+        // }
+
+
+        // 3. for(let book of this.books)
+        // for(let book of this.books) {
+        //   totalPrice += book.price * book.count
+        // }
+
+
+        // return totalPrice
+        return this.books.reduce(function (preValue, book) {
+          return preValue + book.price * book.count
+        }, 0)
       }
     },
-  filters: {
-    showPrice(price) {
-      return '¥' + price.toFixed(2)
-    }
-  }
+    
+
+    // 过滤器
+        filters: {
+          showPrice(price) {
+            return '¥' + price.toFixed(2)
+          }
+        }
+
+        
 })
+
