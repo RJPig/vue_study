@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 1. checkbox单选框 布尔类型-->
+    <!-- <label for="protocol">
+      <input type="checkbox" id="protocol" v-model="protocol">同意协议
+    </label>
+    <h2>你选择的是：{{protocol}}</h2>
+    <button :disabled="!protocol">下一步</button> -->
+
+    <!-- 2. checkbox多选框 数组类型-->
+    <label for="apple"><input type="checkbox" value="苹果" id="apple" v-model="fruits">苹果</label>
+    <label for="banana"><input type="checkbox" value="香蕉" id="banana" v-model="fruits">香蕉</label>
+    <label for="li"><input type="checkbox" value="栗子" id="li" v-model="fruits">栗子</label>
+    <label for="peach"><input type="checkbox" value="桃子" id="peach" v-model="fruits">桃子</label>
+    <label for="pear"><input type="checkbox" value="梨" id="pear" v-model="fruits">梨</label>
+    <h2>你的购物清单： {{fruits}}</h2>
+  </div>
+  <script src="../../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        protocol: false,
+        fruits: []
+      }
+    })
+  </script>
+</body>
+</html>
