@@ -12,7 +12,7 @@
     <input type="text" :value="message" @input="message = $event.target.value">
     -->
     v-model:
-    <input type="text" v-model="message"><br><br>
+    <input type="text" v-model.lazy="message"><br><br>
     v-bind:
     <input type="text" :value="message" @input="ValueChange">
     <input type="text" :value="message" @input="message = $event.target.value">

@@ -15,11 +15,16 @@
     <button :disabled="!protocol">下一步</button> -->
 
     <!-- 2. checkbox多选框 数组类型-->
-    <label for="apple"><input type="checkbox" value="苹果" id="apple" v-model="fruits">苹果</label>
+    <!-- <label for="apple"><input type="checkbox" value="苹果" id="apple" v-model="fruits">苹果</label>
     <label for="banana"><input type="checkbox" value="香蕉" id="banana" v-model="fruits">香蕉</label>
     <label for="li"><input type="checkbox" value="栗子" id="li" v-model="fruits">栗子</label>
     <label for="peach"><input type="checkbox" value="桃子" id="peach" v-model="fruits">桃子</label>
     <label for="pear"><input type="checkbox" value="梨" id="pear" v-model="fruits">梨</label>
+    <h2>你的购物清单： {{fruits}}</h2> -->
+
+    <label v-for="item in optionfruits" :for="item">
+      <input type="checkbox" :value="item" :id="item" v-model="fruits">{{item}}
+    </label>
     <h2>你的购物清单： {{fruits}}</h2>
   </div>
   <script src="../../js/vue.js"></script>
@@ -28,7 +33,8 @@
       el: '#app',
       data: {
         protocol: false,
-        fruits: []
+        fruits: [],
+        optionfruits: ['苹果','香蕉','栗子','桃子','梨']
       }
     })
   </script>
