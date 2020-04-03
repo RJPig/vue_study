@@ -12,6 +12,9 @@
     <cpn></cpn>
   </div>
 
+  <div id="app2">
+    <cpn></cpn>
+  </div>
   <script src="../../js/vue.js"></script>
   <script>
 
@@ -26,16 +29,24 @@
       `
     })
 
-    // 2. 注册组件
-    Vue.component('cpn',cpnC)
+    // 2. 注册组件(全局组件)
+    // Vue.component('cpn',cpnC)
 
     const app = new Vue({
       el: '#app',
       data: {
         message: '组件化基本使用'
+      },
+
+      // 3. 
+      components: {
+        cpn: cpnC
       }
     })
 
+    const app2 = new Vue({
+      el: '#app2'
+    })
   </script>
 </body>
 </html>
