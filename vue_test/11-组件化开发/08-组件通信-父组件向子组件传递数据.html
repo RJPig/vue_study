@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../../js/vue.js"></script>
+  <div id="app">
+    <cpn :cmovies="movies" :cmessage="message"></cpn>
+  </div>
+  <!-- 组件模板 -->
+  <template id="cpn">
+    <div>
+      <ul>
+        <li v-for="items in cmovies">{{items}}</li>
+      </ul>
+      <h2>{{cmessage}}</h2>
+    </div>
+  </template>
+
+
+  <script>
+    // 注册组件语法糖写法
+    const cpn = {
+      template: '#cpn',
+      // props: ['cmovies', 'cmessage'],
+      props: {
+        // 1. 类型限制
+        // cmovies: Array,
+        // cmessage: String
+
+        // 2. 提供一些默认值
+        cmessage: {
+          type: String,
+          default: 'aaaaa'
+        },
+        cmovies: {
+          type: Array,
+          default: []
+        }
+      },
+      data() {
+        return {}
+      },
+    }
+    
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好',
+        movies: ['java','myql','html'],
+      },
+      methods: {},
+      components: {
+        cpn
+      }
+    });
+  </script>
+</body>
+</html>
