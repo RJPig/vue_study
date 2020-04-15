@@ -8,17 +8,29 @@
 <body>
   <script src="../../js/vue.js"></script>
   <div id="app">
-    <cpn :cinfo="info"></cpn>
+    <!-- 当子组件为驼峰命名时，需要用-分隔开 -->
+    <cpn :c-Info="info" :child-My-Message="childmymessage"></cpn>
   </div>
   <template id="cpn">
-    <h2>{{cinfo}}</h2>
+    <div>
+      <ul>
+        <li v-for="item in cInfo">{{item}}</li>
+      </ul>
+      <h2>{{childMyMessage}}</h2>
+    </div>
   </template>
   <script>
     const cpn = {
       template: '#cpn',
       props: {
-        cinfo: {
+        cInfo: {
           type: Object,
+          default() {
+            return {}
+          }
+        },
+        childMyMessage: {
+          type: String,
           default() {
             return {}
           }
@@ -33,7 +45,8 @@
           name: 'one',
           age: 10,
           height: 1.88
-        }
+        },
+        childmymessage: '你好',
       }, 
       methods: {},
       components: {
