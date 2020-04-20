@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../../js/vue.js"></script>
+  <div id="app">
+    <!-- 这里的isShow为根组件里的 -->
+    <cpn v-show="isShow"></cpn>
+  </div>
+  
+  <template id="cpn">
+    <div>
+      <h2>编辑作用域</h2>
+      <!-- 而这里的isShow为子组件里的 -->
+      <button v-show="isShow">按钮</button>      
+    </div>
+
+  </template>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        isShow: true
+      },
+      methods: {},
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              isShow: false
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

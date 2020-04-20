@@ -9,6 +9,7 @@
   <div id="app">
     {{message}}
     <ul>
+        <!-- key将元素一一对应，当进行插入，删除元素操作时，能够快速进行操作，减少资源消耗 -->
         <li v-for="item in lessions" :key="item">{{item}}</li>
     </ul>
 </div>

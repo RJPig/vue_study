@@ -14,15 +14,15 @@
       <button @click.stop="btnClick">按钮</button>
     </div>
 
-    <!-- 2. .prevent修饰符的使用 -->
+    <!-- 2. .prevent修饰符的使用：不将数据传送至服务器 -->
     <form action="baidu">
       <input type="submit" value="提交" @click.prevent="submitClick">
     </form>
 
-    <!-- 3.监听某个键盘的键帽 -->
+    <!-- 3.监听某个键盘的键帽：当按下监听的按键时才会做出操作 -->
     <input type="text" @keyup.enter="keyUp">
 
-    <!-- 4. -->
+    <!-- 4. 点击一次之后该按键失去作用-->
     <button @click.once="btn2Click">按钮</button>
   </div>
   <script src="../../js/vue.js"></script>

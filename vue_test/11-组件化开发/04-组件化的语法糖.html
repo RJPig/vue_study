@@ -18,7 +18,7 @@
     // const cpn1 = Vue.extend()
 
 
-    // 2. 创建并注册组件(语法糖)
+    // 2. 创建并注册组件(语法糖)全局组件
     Vue.component('cpn1', {
       template: `
         <div>
@@ -32,6 +32,7 @@
       el: '#app',
       data: {},
       methods: {},
+      // 局部组件语法糖
       components: {
         'cpn2': {
           template: `

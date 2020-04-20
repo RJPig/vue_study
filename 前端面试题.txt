@@ -1,0 +1,116 @@
+浏览器：
+1. 常用浏览器： chrome（webkit核心），IE（Trident核心），Firefox（Gecko核心）
+
+2. 浏览器内核的理解： 
+  浏览器内核主要包括三个技术分支：排版渲染引擎：负责去的网页内容（Html，Xml，图像等），
+  整理信息，以及计算网页显示方式，然后输出至显示屏
+  JavaScript引擎： 用来渲染JavaScript。
+  以及其他引擎。
+
+3. 一个页面从输入URL到页面加载显示完成，这个过程发生了什么：
+  1). 浏览器根据请求的URL进行DNS域名解析，得到真实IP
+  2). 浏览器根据IP地址向服务器发起TCP连接，其中
+    a. 客户端向服务器发送建立连接请求
+    b. 服务器收到请求后发送同意连接信号
+    c. 浏览器收到同意连接信号之后，再次向服务器发送确认信号。
+  3). 浏览器发送Http请求。根据URL内容生成HTTP请求，请求文件位置以及文件方式  
+  4). 服务器处理处理请求并返回报文。
+  5). 断开连接
+
+4. 浏览器缓存：
+  1). sessionStorage:临时存储，关闭页面标签自动回收。不能存储持久化
+  2). localStorage:永久存储，需手动删除。存储类型限定为String类型
+  3). cookie：兼容性最好，但大小受限
+  4). userData: 出现时间比sessionStorage早，但也受大小限制，是IE专门的存储方式
+
+HTML：
+1. Doctype作用？标准模式与兼容模式各有什么区别? 你知道多少种Doctype文档类型
+  Doctype是告诉浏览器的解析器以什么文档标准进行解析，当Doctype不存在或者格式不正确时将采用兼容模式。
+  标准模式的排版和JS运行模式都是以浏览器最高标准运行
+  而兼容模式只是将能显示的尽量显示出来
+  共有三种Doctype文档类型：过渡的（Transitional）,严格的（Strict）,框架的（Frameset）
+
+2. 谈谈对语义化的理解:
+  用正确的标签做正确的事情，html语义化让页面的内容结构化，结构更清晰，便于浏览器，搜索引擎解析；
+  在没有css样式下，也能以文档格式显示，便于阅读和维护
+
+3. HTML与XHTML有什么区别：
+  XHTML要求正确嵌套；所有元素必须关闭，区分大小写；必须要有根元素
+
+4. 页面导入样式时，使用link和@import有什么区别？
+link是xhtml标签，只能加入html源代码中使用，当link引用CSS时，在页面载入时同时加载，无兼容问题
+<link rel="stylesheet" href="url">
+而@import是CSS提供的，只能用于加载CSS，需要页面网页完全载入后才加载。低版本浏览器不支持
+<style type="text/css">
+  @import url
+</style>
+
+5. HTML5新特性：
+  语义标签： header，footer，nav，article等；
+  增强型表单： color，date，datetime，email等
+  新增表单属性： placehoder（输入框默认值，当键入信息时消失），required（boolean值，强制要求是否为必填项），multiple（boolean值，是否可选择多个值）
+  视频和音频： audio，control（添加播放暂停音量等功能）
+
+6. iframe的优缺点：
+  优点：1.能够原封不动的把嵌入的网页展现出来
+        2.如果有多个网页引用iframe，只需修改iframe内容即可实现调用的每一个内容的更改
+        3.若网页头部和版本一样，可用iframe来嵌套以增加代码的可重用性
+        4.如遇到加载缓慢的第三方内容如图标和广告，可由iframe解决
+  缺点：1.会产生很多页面，不利于管理
+        2.如果框架个数过多，可能会产生上下，左右滚动条分散访问者的注意力
+        3.代码复杂，无法被一些搜索引擎索引到
+        4.设备兼容性差
+        5.会增加服务器的http请求
+
+7.img中的alt与title属性
+  alt是当图片无法显示时，用文字替代图片
+  而title是当鼠标移到图片上时有文字提示
+
+
+css
+1. 行内元素有哪些？块级元素有哪些？CSS的盒模型?
+  行内元素：a,b,br,i,span,input,select,即所有文本级除了p之外的元素
+  块级元素：div,p,h1~h6,ul，即所有容器级标签，外加p
+  css盒模型：内容，border，margin，padding
+
+2.清除浮动有哪些方式：
+  overflow：hidden
+  clear：both  在浮动元素后面添加一个空的div，并且该元素不浮动，接着设置clear：both
+  伪元素清除浮动：即给浮动元素的父盒子添加一个clearfix类
+
+3.CSS选择符都有哪些？哪些属性可以继承？优先级算法如何计算？
+  id选择器: #id
+  类选择器: .class
+  标签选择器: div,h1,p等
+  相邻选择器: h1 + p
+  子选择器: ul>li
+  后代选择器: li a
+  通配符选择器: *
+  属性选择器: a[title]
+  伪类选择器: a:hover,li:nth-child
+
+  可继承的样式: 
+    字体系列属性；
+    文本系列属性；
+    元素可见性：visibility
+    表格布局属性；
+    列表布局属性；
+    生成内容属性；
+    光标属性：cursor
+    页面样式属性；
+    声音样式属性
+
+   优先级算法：
+   就近原则；
+   载入样式以最后载入的定位为准
+   !important > id > class > tag 
+
+4.CSS3中新增伪类有：
+  p:last-of-type  选择其父元素的最后一个P元素
+  p:last-child  选择其父元素的最后子元素（一定是P才行）
+
+  p:first-of-type  选择其父元素的首个P元素
+  p:first-child  选择其父元素的首个子元素
+
+  p:only-child  选择其父元素的指定元素
+  p:only-of-type  选择其父元素的有且只有一个p元素

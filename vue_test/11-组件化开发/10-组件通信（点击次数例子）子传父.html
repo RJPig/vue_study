@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../../js/vue.js"></script>
+  <div id="app">
+    <cpn @add="changeTotal" @decrement="changeTotal"></cpn>
+    <h2>点击次数：{{total}}</h2>
+  </div>
+  
+  <template id="cpn">
+    <div>
+      <button @click="decrement">-1</button>
+      <button @click="add">+1</button>
+    </div>
+  </template>
+
+  <script>
+
+    // 子组件
+    const cpn = {
+      template: '#cpn',
+      data() {
+        return {
+          counter: 0
+        }
+      },
+      methods: {
+        add() {
+          this.counter++;
+          this.$emit('add',this.counter)
+        },
+        decrement() {
+          this.counter--;
+          // 发射事件： 将事件发射给父组件
+          this.$emit('decrement',this.counter)
+        }
+      }
+    }
+
+    // 父组件
+    let app = new Vue({
+      el: '#app',
+      data: {
+        total: 0
+      },
+      methods: {
+        changeTotal(counter) {
+          this.total = counter
+        }
+      },
+      components: {
+        cpn
+      }
+    });
+  </script>
+</body>
+</html>
