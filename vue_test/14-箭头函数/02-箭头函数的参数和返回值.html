@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 两个参数的写法
+    const sum = (num1, num2) => {
+      return num1 + num2
+    }
+    console.log(sum(20, 30));
+    
+    // 放入一个参数时括号可省略
+    const power = num => {
+      return num * num
+    }
+    console.log(power(20));
+    
+    // 函数中
+    // 函数中代码块中有多行代码
+    const test1 = () => {
+      console.log("Hello");
+      console.log("HelloVuejs");
+
+    }
+    console.log(test1());
+    
+    // 函数代码块中只有一行代码
+    const test2 = () => console.log("Hello")
+    console.log(test2());
+    
+  </script>
+</body>
+</html>
