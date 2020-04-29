@@ -8,7 +8,10 @@
     <router-link :to="'/user/'+userid" replace>用户</router-link>
     <!-- <router-link to="/profile" replace>档案</router-link> -->
     <router-link :to="{path: '/profile', query: {name: 'what', age: 18, height: 1.88}}" replace>档案</router-link>
-    <router-view></router-view>
+    <!-- 保存资源,exclude属性是设置其中某个除外 -->
+    <keep-alive exclude="Profile">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 

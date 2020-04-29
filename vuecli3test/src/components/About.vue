@@ -11,6 +11,14 @@ export default {
   //   console.log('created');
   //   document.title = '关于'
   // }
+  created() {
+  console.log('about created');
+    
+  },
+  destroyed() {
+    console.log('about destroyed');
+    
+  }
 }
 </script>
 

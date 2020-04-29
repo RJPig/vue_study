@@ -34,10 +34,10 @@ const routes = [
     },
     // 嵌套路由
     children: [
-      {
-        path: '',
-        component: HomeNews
-      },
+      // {
+      //   path: '',
+      //   component: HomeNews
+      // },
       {
         path: 'news',
         component: HomeNews
@@ -84,14 +84,14 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   next()
   // console.log(to);
-  console.log('++++++');
+  // console.log('++++++');
   
   document.title = to.matched[0].meta.title
 })
 
 // 后置钩子hook不需要调用next()函数
 router.afterEach((to, from) => {
-  console.log('------');
+  // console.log('------');
   
 })
 // 将router对象传入到Vue实例中

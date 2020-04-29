@@ -11,10 +11,20 @@
 
 <script>
 export default {
+  name: 'Profile',
   // created() {
   //   console.log('created');
   //   document.title = '档案'
   // }
+
+  created() {
+    console.log('profile created');
+    
+  },
+  destroyed() {
+    console.log('profile destroyed');
+    
+  }
 }
 </script>
 
