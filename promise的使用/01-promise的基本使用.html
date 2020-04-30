@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     console.log('Hello Promise');
+
+    //     setTimeout(() => {
+    //       console.log('Hello Vue');
+          
+    //     }, 1000)
+    //   }, 1000)
+    // })
+
+    // 链式编程
+    // new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve()
+    //   }, 1000)
+    // }).then(() => {
+    //   console.log('第一次拿到网络请求的代码');
+      
+    //   console.log('Hello One');
+    //   console.log('Hello One');
+    //   console.log('Hello One');
+    //   console.log('Hello One');
+    //   console.log('Hello One');
+      
+    //   return new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //       resolve()
+    //     }, 1000)
+    //   }).then(() => {
+    //     console.log('第二次拿到网络请求的代码');
+
+    //     console.log('Hello Two');
+    //     console.log('Hello Two');
+    //     console.log('Hello Two');
+    //     console.log('Hello Two');
+    //     console.log('Hello Two');
+        
+    //     return new Promise((resolve, reject) => {
+    //       setTimeout(() => {
+    //         resolve()
+    //       }, 1000)
+    //     }).then(() => {
+    //       console.log('第三次拿到网络请求的代码');
+
+    //       console.log('Hello Three');
+    //       console.log('Hello Three');
+    //       console.log('Hello Three');
+    //       console.log('Hello Three');
+    //       console.log('Hello Three');
+          
+    //     })
+    //   })
+    // })
+
+    // 一般情况下有异步操作时,使用Promise对这个异步操作进行封装
+    new Promise((resolve, reject) => {
+      // resolve();
+      reject();
+    }).then(() => {
+      console.log('请求成功');
+      
+    }).catch(err => {
+      console.log('请求失败');
+      
+    })
+
+
+  </script>
+</body>
+</html>

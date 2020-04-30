@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve('aaa')
+    //   })
+    // }).then(res => {
+    //   console.log(res, '第一层的十行处理代码');
+    //   return new Promise(resolve => {
+    //     resolve(res + '111')
+    //   })
+    // }).then(res => {
+    //   console.log(res, '第二层的十行处理代码');
+    //   return new Promise(resolve => {
+    //     resolve(res + '222')
+    //   })
+    // }).then(res => {
+    //   console.log(res, '第三层的处理代码');
+      
+    // })
+
+    // 省略掉箭头函数
+    // new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve('aaa')
+    //   })
+    // }).then(res => {
+    //   console.log(res, '第一层的十行处理代码');
+    //   return Promise.resolve(res + '111')
+    // }).then(res => {
+    //   console.log(res, '第二层的十行处理代码');
+    //   return Promise.resolve(res + '222')
+    // }).then(res => {
+    //   console.log(res, '第三层的处理代码');
+      
+    // })
+
+    // 省略掉promise.resolve
+    // new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve('aaa')
+    //   })
+    // }).then(res => {
+    //   console.log(res, '第一层的十行处理代码');
+    //   return (res + '111')
+    // }).then(res => {
+    //   console.log(res, '第二层的十行处理代码');
+    //   return (res + '222')
+    // }).then(res => {
+    //   console.log(res, '第三层的处理代码');
+      
+    // })
+
+    // 当出现reject时,简写如下,同时一旦出现reject,则会停止往下执行代码
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('aaa')
+      })
+    }).then(res => {
+      console.log(res, '第一层的十行处理代码');
+      // return Promise.reject('error')
+      // 等同于
+      throw 'error message'
+    }).then(res => {
+      console.log(res, '第二层的十行处理代码');
+      return (res + '222')
+    }).then(res => {
+      console.log(res, '第三层的处理代码');
+      
+    }).catch(err => {
+      console.log('error message');
+      
+    })
+  </script>
+</body>
+</html>
