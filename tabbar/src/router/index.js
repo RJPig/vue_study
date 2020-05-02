@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const Home = () => import('../views/home/Home')
-const Category = () => import('../views/category/Category')
-const Shopcart = () => import('../views/shopcart/Shopcart')
-const Profile = () => import('../views/profile/Profile')
+const Home = () => import('views/home/Home')
+const Category = () => import('views/category/Category')
+const Shopcart = () => import('views/shopcart/Shopcart')
+const Profile = () => import('views/profile/Profile')
 Vue.use(Router)
 
 const routes = [
@@ -31,5 +31,5 @@ const routes = [
 ]
 export default new Router({
   routes,
-  mode: 'history'
+  // mode: 'history'
 })
